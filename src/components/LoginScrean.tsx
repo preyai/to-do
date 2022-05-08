@@ -35,8 +35,6 @@ const LoginScrean = () => {
         })
         const data = await response.json()
         if (response.status === 200){
-            console.log(data.jwt);
-            
             localStorage.setItem('jwt', data.jwt)
             actions?.setIsLogin(true)
             navigate('/')

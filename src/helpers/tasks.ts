@@ -15,7 +15,6 @@ export const getTasks = async (todos: tasksState): Promise<{ data: ITask[]; tota
     const response = await fetch(`${apiUri}/tasks?` + params, { method: 'GET', mode: 'cors' })
     const { data, total }: { data: ITask[], total: number } = await response.json()
 
-    console.log({ data, total })
     return { data, total }
 }
 
@@ -25,7 +24,6 @@ export const createTask = async (userName: string, email: string, text: string) 
         email,
         text
     })
-    console.log(body);
 
     const response = await fetch(`${apiUri}/tasks`, {
         method: 'POST',
@@ -36,7 +34,6 @@ export const createTask = async (userName: string, email: string, text: string) 
     })
 
     const json = await response.json()
-    console.log(json);
 
     if (json.status === 200)
         return json
